@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For my babe</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgb(247, 205, 244);
+            margin: 0;
+        }
+        #content {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #message {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333333;
+            transition: color 0.3s;
+        }
+        #nextButton {
+            font-size: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #e800d5;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        #nextButton:hover {
+            background-color: hsl(322, 75%, 42%);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+        #nextButton:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+        #imageContainer {
+            display: none;
+            margin-top: 20px;
+        }
+        #imageContainer img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div id="message">สวัสดี ไอ้ต้าวอ้วน กดคลิกไปเรื่อยๆนะ</div>
+        <button id="nextButton">กดตรงนี้นะ</button>
+        <div id="imageContainer">
+            <img src="images.jpeg">
+        </div>
+    </div>
+
+    <script>
+        const messages = [
+            "สวัสดีครับ คนน่ารักที่สุดของเค้า",
+            "เราขอบคุณแกมากๆเลยนะ ที่เข้ามาในชีวิตเค้า",
+            "แกมาทำให้เรารู้ว่า การมีแกมันดีกว่าการอยู่คนเดียวมากๆ",
+            "แกเป็นคนที่น่ารักมากๆเลยรู้ไหม สำหรับเรา",
+            "เราชอบมากๆเลย เวลาแกเตือนหรือให้กำลังใจเราในทุกๆครั้ง",
+            "เราได้กำลังใจ หรือมีแกอยู่ข้างๆทุกๆครั้ง โดยที่เราไม่ต้องขอ",
+            "เราดีใจมากที่ได้รู้จักแก ถึงมันจะเป็นช่วงเวลาที่ไม่นานที่เรารู้จักกัน",
+            "แต่เราก็อยากมีแก แบบนี้ไปตลอด",
+            "เราเลยอยากถามแกว่า",
+        ];
+
+        let index = 0;
+        const messageElement = document.getElementById('message');
+        const buttonElement = document.getElementById('nextButton');
+        const imageContainer = document.getElementById('imageContainer');
+
+        buttonElement.addEventListener('click', () => {
+            if (index < messages.length) {
+                messageElement.textContent = messages[index];
+                if (index === messages.length) {
+                }
+                index++;
+            } else {
+                messageElement.textContent = "เป็นแฟนกันนะ Babe";
+                imageContainer.style.display = 'block';
+                buttonElement.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
